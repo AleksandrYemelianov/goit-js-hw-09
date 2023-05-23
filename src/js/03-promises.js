@@ -18,15 +18,15 @@ function createPromise(position, delay) {
 function createPromiseOnSubmit(e) {
     e.preventDefault()
     const { delay, step, amount } = e.target.elements
-    delayInput = Number(delay.value);
-    stepDelayInput = Number(step.value);
-    amountInput = Number(amount.value);
+    const delayInput = Number(delay.value);
+    const stepDelayInput = Number(step.value);
+    const amountInput = Number(amount.value);
 
     let position = 0;
   
     for (let i = 0; i < amountInput; i++) {
         position += 1;
-        
+
         createPromise(position, delayInput)
         .then(({ position, delay }) => {
             Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
